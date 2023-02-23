@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../layout/header/header.component';
 import { FooterComponent } from '../layout/footer/footer.component';
+import { MainComponent } from '../layout/main/main.component';
 
 
 @NgModule({
   declarations: [
+    MainComponent,
     HeaderComponent,
     FooterComponent,
   ],
@@ -30,6 +32,7 @@ import { FooterComponent } from '../layout/footer/footer.component';
     HttpClientModule,
     RouterModule,
     MaterialUiModule,
+    MainComponent,
     HeaderComponent,
     FooterComponent,
   ],
