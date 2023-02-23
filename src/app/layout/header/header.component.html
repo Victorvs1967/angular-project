@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button><mat-icon>menu</mat-icon></button>
+  <div class="brand">Victor's Poject</div>
+  <div class="spacer"></div>
+  <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item><mat-icon>login</mat-icon>Login</button>
+    <button mat-menu-item><mat-icon>person_add</mat-icon>Sign Up</button>
+  </mat-menu>
+</mat-toolbar>
