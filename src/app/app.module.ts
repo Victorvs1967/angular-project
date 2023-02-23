@@ -20,7 +20,7 @@ import { DataModule } from './data/data.module';
     SharedModule,
     DataModule,
   ],
-  providers: [ ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
