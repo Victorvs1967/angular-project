@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [],
@@ -10,9 +9,6 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     CoreRoutingModule,
     SharedModule,
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: PathLocationStrategy,
-  }],
+  providers: [],
 })
 export class CoreModule { }

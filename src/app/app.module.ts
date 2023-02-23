@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { DataModule } from './data/data.module';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { DataModule } from './data/data.module';
     SharedModule,
     DataModule,
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: PathLocationStrategy,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
