@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedRoutingModule } from './shared-routing.module';
 import { MaterialUiModule } from '../styles/material-ui/material-ui.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +18,6 @@ import { MainComponent } from '../layout/main/main.component';
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -27,14 +25,12 @@ import { MainComponent } from '../layout/main/main.component';
     MaterialUiModule,
   ],
   exports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
     MaterialUiModule,
-    MainComponent,
-    HeaderComponent,
-    FooterComponent,
   ],
 })
 export class SharedModule { }
