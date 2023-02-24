@@ -10,13 +10,6 @@ export class HomeComponent {
   color: string = '#000';
   textColor = { 'color': this.color };
 
-  btnStatus: string = 'Button Not Clicked...'
-
-  user: any = {
-    name: 'Victor',
-    job: 'Technolog',
-  };
-
   constructor() {
     setTimeout(() => {
       this.color =  'red';
@@ -24,7 +17,4 @@ export class HomeComponent {
     }, 2000);
   }
 
-  setBtnStatus() {
-    this.btnStatus = 'Button Clicked!'
-  }
 }
