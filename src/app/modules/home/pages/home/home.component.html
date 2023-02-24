@@ -1,1 +1,14 @@
-<p>home works!</p>
+<p [ngStyle]="textColor">home works!</p>
+<button mat-raised-button color="primary" (click)="setBtnStatus()">Click</button>
+<p>{{ btnStatus }}</p>
+<div class="form">
+  <h4>Two Way Binding</h4>
+  <pre>{{ user | json }}</pre>
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="user.name" placeholder="enter name" />
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input type="text" matInput [(ngModel)]="user.job" placeholder="enter job" />
+  </mat-form-field>
+</div>
