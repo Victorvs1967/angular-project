@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { DataModule } from './data/data.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     CoreModule,
     SharedModule,
     DataModule,
+    AuthModule,
   ],
   providers: [
     {

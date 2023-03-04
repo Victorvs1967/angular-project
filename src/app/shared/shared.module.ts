@@ -16,7 +16,8 @@ import { ConfirmDialogComponent } from '../layout/confirm-dialog/confirm-dialog.
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    ConfirmDialogComponent],
+    ConfirmDialogComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,

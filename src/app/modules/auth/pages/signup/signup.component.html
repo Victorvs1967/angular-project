@@ -1,1 +1,67 @@
-<p>signup works!</p>
+<div class="header">
+  <h2 mat-dialog-title>Login</h2>
+  <button mat-icon-button [mat-dialog-close]="false"><mat-icon>close</mat-icon></button>
+</div>
+<mat-divider></mat-divider>
+<form mat-dialog-content  *ngIf="signupForm" [formGroup]="signupForm" (ngSubmit)="submitSignup()">
+  <div class="form-inputs">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Enter username..." type="text" formControlName="username" required>
+      <mat-hint>username</mat-hint>
+    </mat-form-field>
+
+    <div class="fields-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter password..." type="password" formControlName="password" required>
+        <mat-hint>password</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Reenter Password</mat-label>
+        <input matInput placeholder="Reenter password..." type="password" formControlName="password2" required>
+        <mat-hint *ngIf="signupForm.controls['password']?.value == signupForm.controls['password2']?.value">password
+          confirm</mat-hint>
+        <mat-hint *ngIf="signupForm.controls['password']?.value != signupForm.controls['password2']?.value"
+          style="color: red;">password not confirm</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter email..." type="email" formControlName="email" required>
+      <mat-hint>email</mat-hint>
+    </mat-form-field>
+
+    <div class="fields-group">
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Firstname</mat-label>
+        <input matInput placeholder="Repeat first name..." type="text" formControlName="firstName">
+        <mat-hint>firstname</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="Enter lastname..." type="text" formControlName="lastName">
+        <mat-hint>lastname</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="Enter phone..." type="tel" formControlName="phone">
+      <mat-hint>phone</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-bottom: 0;">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="Enter address..." type="text" formControlName="address">
+      <mat-hint>address</mat-hint>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="btn-group">
+    <button mat-stroked-button [mat-dialog-close]="false" class="btn-primary">Cancel</button>
+    <button mat-stroked-button [mat-dialog-close]="true" color="primary" type="submit" [disabled]="signupForm.invalid || (signupForm.controls['password'].value != signupForm.controls['password2'].value)">SignUp</button>
+  </div>
+</form>

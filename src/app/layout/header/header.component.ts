@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/modules/auth/pages/login/login.component';
 import { SignupComponent } from 'src/app/modules/auth/pages/signup/signup.component';
 import { userModal } from 'src/app/modules/auth/pages/user-dialog.decorator';
@@ -14,7 +15,9 @@ export class HeaderComponent {
 
   dialogService = inject(DialogService);
   
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) {}
 
   @needConfirmation()
   logout() {
@@ -23,9 +26,11 @@ export class HeaderComponent {
 
   @userModal(LoginComponent)
   login() {
-    console.log('2222');
+    this.router.navigate(['about']);
   }
 
   @userModal(SignupComponent)
-  signup() {}
+  signup() {
+    this.login();
+  }
 }
