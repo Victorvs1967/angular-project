@@ -14,7 +14,7 @@ export class HomeComponent {
 
   user: any = {
     name: 'Victor',
-    job: 'Technolog',
+    job: 'Web Developer',
   };
 
   constructor() {

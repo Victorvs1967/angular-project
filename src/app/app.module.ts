@@ -21,10 +21,12 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     SharedModule,
     DataModule,
   ],
-  providers: [{
-    provide: LocationStrategy,
-    useClass: PathLocationStrategy,
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy,
+   },
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

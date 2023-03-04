@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from '../layout/header/header.component';
 import { FooterComponent } from '../layout/footer/footer.component';
 import { MainComponent } from '../layout/main/main.component';
+import { ConfirmDialogComponent } from '../layout/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { MainComponent } from '../layout/main/main.component';
     MainComponent,
     HeaderComponent,
     FooterComponent,
-  ],
+    ConfirmDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
