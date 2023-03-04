@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +16,7 @@ export class SignupComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: User,
     private formBuilder: UntypedFormBuilder,
+    private auth: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,6 @@ export class SignupComponent {
   }
 
   submitSignup() {
-    console.log(this.signupForm?.value);
+    this.auth.signup(this.signupForm?.value).subscribe(data => console.log(data));
   }
 }
