@@ -19,9 +19,10 @@ export class HeaderComponent {
     private router: Router,
   ) {}
 
-  @needConfirmation()
+  @needConfirmation({ title: 'Logout', message: 'You logout from site. A you sure?' })
   logout() {
-    console.log('1111');
+    sessionStorage.clear();
+    this.router.navigate(['home']);
   }
 
   @userModal(LoginComponent)
