@@ -1,14 +1,29 @@
 <p [ngStyle]="textColor">home works!</p>
 <button mat-raised-button color="primary" (click)="setBtnStatus()">Click</button>
 <p>{{ btnStatus }}</p>
-<div class="form">
-  <h4>Two Way Binding</h4>
-  <pre>{{ user | json }}</pre>
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="user.name" placeholder="enter name" />
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="user.job" placeholder="enter job" />
-  </mat-form-field>
-</div>
+<mat-card>
+  <mat-card-content>
+    <mat-card-title>Two Way Binding</mat-card-title>
+    <div class="form">
+      <pre>{{ user | json }}</pre>
+      <mat-form-field appearance="fill" hintLabel="This is a hint label message.">
+        <mat-label>Fill</mat-label>
+        <input matInput type="text" [formControl]="name" placeholder="enter name" autocomplete="off"/>
+        <!-- <input matInput type="text" [(ngModel)]="user.name" placeholder="enter name" autocomplete="off"/> -->
+        <mat-error *ngIf="name.invalid">field is requiered.</mat-error>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Outline</mat-label>
+        <input matInput type="text" [(ngModel)]="user.job" placeholder="enter job" autocomplete="off"/>
+        <mat-hint [align]="'start'">This is a hint label message.</mat-hint>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Outline</mat-label>
+        <input #input matInput type="text" [(ngModel)]="user.job" placeholder="enter job" autocomplete="off"/>
+        <mat-hint [align]="'end'">{{ input.value.length || 0 }}/75</mat-hint>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+</mat-card>

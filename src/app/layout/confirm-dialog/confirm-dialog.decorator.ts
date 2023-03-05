@@ -11,7 +11,7 @@ export const needConfirmation = (confirmData: ConfirmDialogData = defaultConfirm
   return (target: Object, propertyKey: string, descriptor: PropertyDescriptor) => {
     const originalMethod = descriptor.value;
     descriptor.value = async function ( ...args: any ) {
-      DialogService.getInstance()?.openDialog(confirmData, ConfirmDialogComponent)
+      DialogService.getInstance()?.openDialog(confirmData, ConfirmDialogComponent, '400px')
         .subscribe(validation => {
           if (validation) originalMethod.apply(this, args);
         });

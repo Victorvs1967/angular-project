@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,8 @@ export class HomeComponent {
     name: 'Victor',
     job: 'Web Developer',
   };
+
+  name = new FormControl(this.user.name, Validators.required);
 
   constructor() {
     setTimeout(() => {
