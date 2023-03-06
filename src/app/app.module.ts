@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { DataModule } from './data/data.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { AuthModule } from './modules/auth/auth.module';
 import { JwtService } from './service/jwt.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token.interceptor';
+import { DataModule } from './data/data.module';
 
 @NgModule({
   declarations: [
@@ -21,18 +20,17 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule,
     SharedModule,
+    CoreModule,
     DataModule,
-    AuthModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    JwtService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
-   },
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    JwtService,
   ],
   bootstrap: [ AppComponent ]
 })

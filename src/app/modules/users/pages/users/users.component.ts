@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersDataSource } from 'src/app/data/user-data-source';
-import { User } from 'src/app/models/user.model';
+import { AnyDataSource } from 'src/app/data/data-source';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
@@ -20,7 +19,7 @@ export class UsersComponent implements OnInit {
   }
 
   reloadData(): void {
-    this.userService.getUserList().subscribe(data => this.dataSource = new UsersDataSource([ ...data ]));
+    this.userService.getUserList().subscribe(data => this.dataSource = new AnyDataSource([ ...data ]));
   }
 
 }
