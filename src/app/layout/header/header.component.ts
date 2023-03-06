@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/modules/auth/pages/login/login.component';
 import { SignupComponent } from 'src/app/modules/auth/pages/signup/signup.component';
 import { userModal } from 'src/app/modules/auth/pages/user-dialog.decorator';
+import { AuthService } from 'src/app/service/auth.service';
 import { DialogService } from 'src/app/service/dialog.service';
 import { needConfirmation } from '../confirm-dialog/confirm-dialog.decorator';
 
@@ -16,12 +17,13 @@ export class HeaderComponent {
   dialogService = inject(DialogService);
   
   constructor(
+    private auth: AuthService,
     private router: Router,
   ) {}
 
   @needConfirmation({ title: 'Logout', message: 'You logout from site. A you sure?' })
   logout() {
-    sessionStorage.clear();
+    this.auth.logout();
     this.router.navigate(['home']);
   }
 

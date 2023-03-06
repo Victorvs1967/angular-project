@@ -44,4 +44,14 @@ export class AuthService {
   signup(user: User): Observable<any> {
     return this.http.post(environment.apiUrl.concat(environment.signupUrl), user);
   }
+
+  logout(param = true) {
+    if (param) {
+      this.clearToken();
+
+      setTimeout(() => {}, 500);
+      return true;
+    }
+    return false;
+  }
 }
