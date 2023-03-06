@@ -9,6 +9,9 @@ import { SharedModule } from './shared/shared.module';
 import { DataModule } from './data/data.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthModule } from './modules/auth/auth.module';
+import { JwtService } from './service/jwt.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthModule,
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    JwtService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy,

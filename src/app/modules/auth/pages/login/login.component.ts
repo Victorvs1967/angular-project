@@ -31,7 +31,7 @@ export class LoginComponent {
   }
 
   submitLogin() {
-    this.auth.login(this.loginForm?.value).subscribe(data => this.setToken(data.token));
+    this.auth.login(this.loginForm?.value).subscribe();
   }
 
   @userModal(SignupComponent)

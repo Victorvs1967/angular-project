@@ -32,6 +32,6 @@ export class HeaderComponent {
 
   @userModal(SignupComponent)
   signup() {
-    this.login();
+    this.router.navigate(['users']);
   }
 }
